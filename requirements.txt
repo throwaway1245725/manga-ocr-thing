@@ -1,0 +1,6 @@
+googletrans==4.0.0rc1
+manga-ocr
+requests
+black
+cutlet
+unidic-lite
