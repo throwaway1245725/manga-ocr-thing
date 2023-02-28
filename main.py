@@ -11,9 +11,9 @@ mocr = MangaOcr()
 google_translator = Translator()
 katsu = Cutlet()
 manga_dir = Path(
-    "J:/Misc/Nexus 5/.aux/Qualcomm/Roaming/Wireless/ffff/u/ohboy/manga/[Fuzui] Lethal Succubus (2D Comic Magazine Mesugaki Henshin Heroine Seisai Wakarase-bou ni wa Katemasen deshita! Vol 2) [Digital]"
+    "J:/Misc/Nexus 5/.aux/Qualcomm/Roaming/Wireless/ffff/u/ohboy/manga/<something>"
 )
-raws_dir = manga_dir / "raw"
+raws_dir = manga_dir / "raws"
 raw_pages = list(raws_dir.iterdir())
 
 
@@ -63,7 +63,8 @@ def get_dir_or_create(path: Path) -> Path:
     return path
 
 
-page_dirs = [get_dir_or_create(manga_dir / raw_page.stem) for raw_page in raw_pages]
+trans_dir = get_dir_or_create(manga_dir / "translations")
+page_dirs = [get_dir_or_create(trans_dir / raw_page.stem) for raw_page in raw_pages]
 
 for page_dir in page_dirs:
     for section in page_dir.iterdir():
